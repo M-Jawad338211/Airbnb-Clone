@@ -7,8 +7,6 @@ import Heading from "../Heading";
 import { categories } from "../Navbar/Categories";
 import CategoryInput from "../inputs/CategoryInput";
 import { FieldValues, useForm } from "react-hook-form";
-import { title } from "process";
-import { on } from "events";
 import CountrySelect from "../inputs/CountrySelect";
 
 enum STEPS {
@@ -96,7 +94,7 @@ const RentModal = () => {
                 md:grid-cols-2
                 gap-3
                 max-h-[50vh]
-                overflow-y-auto "
+                overflow-y-auto"
                 >
                     {categories.map((item) => (
                         <div key={item.label} className="col-span-1">
