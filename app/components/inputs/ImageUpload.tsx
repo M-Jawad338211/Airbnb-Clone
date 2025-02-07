@@ -18,8 +18,15 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
     onChange,
     value
 }) => {
+    // const handleUpload = useCallback((result: any) => {
+    //     onChange(result.info.secure_url);
+    // }, [onChange]);
     const handleUpload = useCallback((result: any) => {
-        onChange(result.info.secure_url);
+        if (result.event === "success") {
+            onChange(result.info.secure_url);
+        } else if (result.event === "error") {
+            console.error("Upload Error:", result.info);  // This will log detailed error info
+        }
     }, [onChange]);
 
     return (
@@ -51,7 +58,20 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
                           text-neutral-600  
                             "
                     >
-                        <TbPhotoPlus />
+                        <TbPhotoPlus size={50} />
+                        <div className="font-semibold text-lg">Click to upload</div>
+                        {value && (
+                            <div 
+                                className="absolute inset-0 w-full h-full"
+                            >
+                                 <Image 
+                                    alt ="upload"
+                                    fill
+                                    style={{ objectFit: 'cover' }}
+                                    src={value}
+                                 />
+                            </div>
+                        )}
                     </div>
                 )
             }}
