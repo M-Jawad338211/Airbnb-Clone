@@ -17,8 +17,11 @@ const HeartButton: React.FC<HeartButtonProps> = ({
         listingId,
         currentUser
     });
+    console.log('Has Favorited:', hasFavorited);
     return (
         <div
+        onClick={toggleFavorite}  
+
             className="
                 relative
                 hover:opacity-80
