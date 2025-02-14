@@ -6,7 +6,6 @@ import { safeReservations, SafeUser } from "../types";
 import { useCallback, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { error } from "console";
 import ListingCard from "../components/listings/ListingCard";
 
 
@@ -32,7 +31,6 @@ const TripsClient: React.FC<TripsPageProps> = ({
         })
         .catch((error) => {
             // Logging the full error in case you want more insight
-            console.error(error);
         
             // Displaying the error message in the toast
             toast.error(error?.response?.data?.error);
