@@ -7,7 +7,6 @@ import ListingReservation from "@/app/components/listings/ListingReservation";
 import { categories } from "@/app/components/Navbar/Categories";
 import useLoginModal from "@/app/hooks/useLoginModal";
 import { SafeListing, safeReservations, SafeUser } from "@/app/types";
-import { Reservation } from "@prisma/client";
 import axios from "axios";
 import { differenceInCalendarDays,eachDayOfInterval } from "date-fns";
 import { useRouter } from "next/navigation";

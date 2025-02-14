@@ -31,6 +31,10 @@ const TripsClient: React.FC<TripsPageProps> = ({
             router.refresh();
         })
         .catch((error) => {
+            // Logging the full error in case you want more insight
+            console.error(error);
+        
+            // Displaying the error message in the toast
             toast.error(error?.response?.data?.error);
         })
         .finally(() => {
