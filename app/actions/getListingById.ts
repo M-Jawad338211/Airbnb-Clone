@@ -33,7 +33,7 @@ export default async function getListingById(
                     listing.user.emailVerified?.toISOString() || null,
             }
         };
-    } catch (error: unknown) {
-        throw new Error("error");
+    } catch (error) {
+        throw new Error(error instanceof Error ? error.message : "Failed to fetch listing ids");
     }
 }

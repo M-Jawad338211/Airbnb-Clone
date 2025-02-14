@@ -119,7 +119,7 @@ export default async function getListings(params: IListingsParams) {
             category
         } = params;
 
-        const query: Record<string, any> = {};
+        const query: Record<string, unknown> = {};
 
         if (userId) query.userId = userId;
         if (category) query.category = category;

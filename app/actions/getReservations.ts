@@ -10,7 +10,7 @@ export default async function getReservations(params: Iparams) {
     try {
         const { listingId, userId, authorId } = params;
 
-        const query: Record<string, any> = {};
+        const query: Record<string, unknown> = {};
 
         if (listingId) {
             query.listingId = listingId;
