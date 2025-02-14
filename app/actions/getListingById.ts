@@ -33,7 +33,7 @@ export default async function getListingById(
                     listing.user.emailVerified?.toISOString() || null,
             }
         };
-    } catch (error: any) {
-        throw new Error(error);
+    } catch (error: unknown) {
+        throw new Error("error");
     }
 }

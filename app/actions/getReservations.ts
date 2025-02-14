@@ -10,7 +10,7 @@ export default async function getReservations(params: Iparams) {
     try {
         const { listingId, userId, authorId } = params;
 
-        const query: any = {};
+        const query: Record<string, any> = {};
 
         if (listingId) {
             query.listingId = listingId;
@@ -46,7 +46,8 @@ export default async function getReservations(params: Iparams) {
         }));
 
         return safeReservations;
-    } catch (error: any) {
-        throw new Error(error);
+    } catch (error) {
+        throw new Error(error instanceof Error ? error.message : "Failed to fetch reserations");
     }
+    
 }
