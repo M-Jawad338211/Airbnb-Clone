@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-
 import getCurrentUser from "@/app/actions/getCurrentUser";
 import prisma from "@/app/libs/prismadb";
 
@@ -9,8 +8,9 @@ interface IParams {
 
 export async function POST(
     request: Request,
-    { params }: { params: IParams}
+    context: { params: IParams }
 ) {
+    const { params } = context; // ✅ Extract params correctly
     const currentUser = await getCurrentUser();
 
     if (!currentUser) {
@@ -35,13 +35,15 @@ export async function POST(
             favoriteIds
         }
     });
+
     return NextResponse.json(user);
 }
 
-export async function DELETE (
+export async function DELETE(
     request: Request,
-    { params }: { params: IParams }
+    context: { params: IParams }
 ) {
+    const { params } = context; // ✅ Extract params correctly
     const currentUser = await getCurrentUser();
 
     if (!currentUser) {
