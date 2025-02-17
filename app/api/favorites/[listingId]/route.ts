@@ -1,14 +1,14 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import getCurrentUser from "@/app/actions/getCurrentUser";
 import prisma from "@/app/libs/prismadb";
 
 interface IParams {
-    listingId: string; // Ensure `listingId` is required
+    listingId: string;
 }
 
-// ✅ Fix: Use `params` as an argument instead of `context`
+// ✅ Fix: Use `(request: NextRequest, { params }: { params: IParams })`
 export async function POST(
-    request: Request,
+    request: NextRequest,
     { params }: { params: IParams }
 ) {
     const currentUser = await getCurrentUser();
@@ -37,9 +37,9 @@ export async function POST(
     return NextResponse.json(user);
 }
 
-// ✅ Fix: Use `params` correctly in DELETE function
+// ✅ Fix: Use `(request: NextRequest, { params }: { params: IParams })`
 export async function DELETE(
-    request: Request,
+    request: NextRequest,
     { params }: { params: IParams }
 ) {
     const currentUser = await getCurrentUser();
